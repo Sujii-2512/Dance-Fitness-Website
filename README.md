@@ -9,23 +9,6 @@ A modern and fully responsive website for **Trilochana Dance and Fitness Studio*
 
 ---
 
-## 📁 Project Structure
-
-tdfstudio/
-│── index.html
-│── CSS/
-│    ├── styles.css
-│    └── android.css
-│── js/
-│── admin/
-│── admissionform/
-│── student/
-│── media/
-│── template/
-└── README.md
-
----
-
 ## 🛠️ Tech Stack
 
 - HTML5  
