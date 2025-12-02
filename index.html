@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRILOCHANA</title>
+    <link rel="stylesheet" href="../Dance/CSS/styles.css">
+    <link rel="stylesheet" href="../Dance/CSS/android.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ 
+    <header>
+        <div class="header-container">
+            <button class="openbtn" onclick="openNav()">☰</button>
+            <div class="txt-containerr">
+                <span class="txt-head">Trilochana</span>
+                <div class="txt-powered-by">Dance & Fitness Studio</div>
+            </div>
+        </div>
+        <div id="mySidepanel" class="sidepanel">
+            <!-- <div><img src="media/logo.png" class="android_menu_logo"></div> -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="../index.html" onclick="closeNavOnClick()">HOME</a>
+            <a href="../Dance/Template/about.html" onclick="closeNavOnClick()">ABOUT</a>
+            <a href="../Dance/Template/classes.html" onclick="closeNavOnClick()">STYLES</a>
+            <a href="../Dance/Template/services.html" onclick="closeNavOnClick()">SERVICES</a>
+            <a href="../Dance/Template/contact.html" onclick="closeNavOnClick()">CONTACT</a>
+            <a href="../Dance/Template/gallery.html" onclick="closeNavOnClick()">GALLERY</a>
+            <a href="#login" id="userIconLink" class="user-icon" onclick="togglePopup(); closeNavOnClick();">LOGIN</a>
+
+        </div>
+
+        <div id="mySidebarNav" class="mySidebarNav">
+            <a href="index.html" id="homeLink"><span>Home</span> <i class="fas fa-home"></i></a>
+            <a href="../Dance/Template/about.html" id="aboutLink"><span>About</span> <i
+                    class="fas fa-info-circle"></i></a>
+            <a href="../Dance/Template/classes.html" id="stylesLink"><span>Styles</span> <i
+                    class="fas fa-child"></i></a>
+            <a href="../Dance/Template/services.html" id="servicesLink"><span>Services</span> <i
+                    class="fas fa-music"></i></a>
+            <a href="../Dance/Template/contact.html" id="contactLink"><span>Contact</span> <i
+                    class="fas fa-envelope"></i></a>
+            <a href="../Dance/Template/gallery.html" id="galleryLink"><span>Gallery</span> <i
+                    class="fas fa-images"></i></a>
+        </div>
+
+
+        <!-- Main Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"></a>
+            </div>
+            <a href="index.html" class="brand-info1">
+                <h1>Trilochana</h1>
+                <p>Dance & Fitness Studio</p>
+            </a>
+            <div class="nav-links right">
+                <a href="#login" id="userIconLink" class="user-icon" onclick="togglePopup()"><i
+                        class="fas fa-user"></i></a>
+            </div>
+        </nav>
+
+        <!-- Button to Open Side Panel -->
+        <!-- <button class="openbtn1" onclick="openNav1()">☰</button>  -->
+    </header>
+
+    <section class="video-section">
+        <video id="myVideo" autoplay loop muted controlsList="nodownload">
+            <source src="media/dance101.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="video-text">
+            <div class="slide" id="slide1">
+                Step into a world where every move tells a story, and every workout fuels your journey.
+                <a href="../Dance/Template/contact.html" class="btn">Enroll Today!</a>
+            </div>
+            <div class="slide" id="slide2">
+                At our academy, we don't just teach dance and fitness; we inspire greatness, one step at a time.
+                <a href="../Dance/Template/classes.html" class="btn">Explore Classes</a>
+            </div>
+            <div class="slide" id="slide3">
+                Embark on a journey of passion and progress, where every move is a step towards triumph and growth.
+            </div>
+        </div>
+        <button id="arrowButton" class="arrow-button">&larr;</button>
+        <div id="branchInfo" class="branch-info">
+            <button id="closeButton" class="close-button">&times;</button>
+           
+            <button class="branch-button" onclick="nandhinilayout()">
+                <h3>Nandhini Layout</h3>
+                <p>456 Dance Ave, Nandini Layout, Bangalore</p>
+            </button>
+            <button  class="branch-button" onclick="mahalakshmi()">
+                <h3>Mahalakshmi</h3>
+                <p>123 Main St, Mahalakshmi, Bangalore</p>
+            </button>
+            <button class="branch-button" onclick="laggere()">
+                <h3>Laggere</h3>
+                <p>789 Fitness Blvd, Laggere, Bangalore</p>
+            </button>
+        </div>
+    </section>
+
+
+    <div class="scroll-container">
+        <div class="animated-text">
+            <h2>Dance Makes Every Moment Count!! Start Feeling Alive With Dance</h2>
+            <p>Step into our vibrant studio, where every movement is a celebration of life and vitality.
+                Experience the exhilaration of dance and fitness intertwined, enhancing your agility, strength,
+                and inner harmony. Join our community and ignite your passion for movement, wellness, and
+                self-expression in a journey filled with creativity and joy. Explore the magic of dance with us,
+                where each step brings you closer to a healthier, happier you.</p>
+            <a href="../Dance/Template/about.html" class="big-button">Our Purpose</a>
+
+        </div>
+    </div>
+
+    <div class="second-fixed-bg">
+        <div class="overlay"></div>
+        <div class="text-on-image">DANCING IS THE POETRY OF THE FOOT</div>
+        <div class="text1">Don’t practice until you get it right; practice until you win.</div>
+        <a href="../Dance/Template/contact.html" class="text2">JOIN TODAY</a>
+    </div>
+
+    <div class="dance-scroll-container">
+        <div class="dance-content-container">
+            <div class="dance-text-content">
+                <h2 class="dance-title">A DANCE FULL OF NEW STYLE</h2>
+                <p class="dance-description">Be the center of attraction with your new dance moves and style. Learn
+                    Dance from professional crew. Our company provides you with best faculty of dancer.</p>
+            </div>
+            <img class="dance-image" src="media/img1.jpg">
+        </div>
+    </div>
+
+
+    <div class="first-fixed-bg">
+        <div class="overlay"></div>
+        <div class="text-on-image1">GRAB THE OPPORTUNITY</div>
+        <div class="text11">Discover the magic of dance in every step. Our expert guidance transforms your passion into
+            artistry and brings out the best in you.
+        </div>
+        <a href="../Dance/Template/classes.html" class="text21">LEARN MORE</a>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+
+            <div class="tab-content active" id="login">
+                <img src="media/user.png" alt="User Image" class="user-image">
+                <h2 class="head">Login</h2>
+              
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button class="buttonsubmit" type="submit" onclick="logintoaccount()">Login</button>
+                
+                <!-- <div class="already-account">
+                Don't have an account? <a onclick="openTab(event, 'register')">Sign up</a>
+            </div> -->
+            </div>
+            <div class="tab-content" id="register">
+                <h2 class="head">Register</h2>
+                <form>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="registerPhone" placeholder="Phone Number" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <!-- <div class="already-account">
+                Already registered? <a onclick="openTab(event, 'login')">Login</a>
+            </div> -->
+            </div>
+            <button class="close-button" onclick="togglePopup()">×</button>
+        </div>
+    </div>
+    <div id="loadingOverlay" class="loading-overlay">
+        <img src="media/spinner.gif" alt="Loading..." class="loading-gif">
+    </div>
+    <!-- <script>
+        document.getElementById("loadingOverlay").style.display="block";
+    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <section class="dance-styles-section">
+        <div class="container">
+            <h2 class="section-title">MARTIAL ARTS</h2>
+            <div class="dance-style-grid">
+                    <div class="dance-style-card">
+                        <div class="dance-style-overlay">
+                            <img id="gymnastics" src="media/gymnastics.jpg" alt="Dance Style 4">
+                            <div class="overlay-text">
+                                <h3 class="dance-style-title">Gymnastics</h3>
+                                <p class="dance-style-description">Feel the passion and rhythm of Latin dances with salsa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dance-style-card">
+                        <div class="dance-style-overlay">
+                            <img id="karate" src="media/karate.jpg" alt="Dance Style 4">
+                            <div class="overlay-text">
+                                <h3 class="dance-style-title">Karate (with weapons)</h3>
+                                <p class="dance-style-description">Feel the passion and rhythm of Latin dances with salsa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dance-style-card">
+                        <div class="dance-style-overlay">
+                            <img id="aerobic" src="media/aerobic.jpg" alt="Dance Style 4">
+                            <div class="overlay-text">
+                                <h3 class="dance-style-title">Aerobics</h3>
+                                <p class="dance-style-description">Feel the passion and rhythm of Latin dances with salsa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dance-style-card">
+                        <div class="dance-style-overlay">
+                            <img id="yoga" src="media/yoga1.jpg" alt="Dance Style 4">
+                            <div class="overlay-text">
+                                <h3 class="dance-style-title">Yoga</h3>
+                                <p class="dance-style-description">Feel the passion and rhythm of Latin dances with salsa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="details-popup" class="details-popup">
+                    <span class="close-popup" id="closePopup">&times;</span>
+                    <h3 id="popup-title"></h3>
+                    <table id="popup-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Fee (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="popup-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="../Dance/Template/classes.html" class="explore-link">Explore More Dance Styles</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h3>About Us</h3>
+                <ul class="about-list">
+                    <li><a href="../Dance/Template/about.html">About Us</a></li>
+                    <li><a href="../Dance/Template/classes.html">Dance Styles</a></li>
+                    <li><a href="../Dance/Template/services.html">Services</a></li>
+                    <li><a href="../Dance/Template/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <!--  <div class="footer-section dance-styles">
+                <h3>Dance Styles</h3>
+                <ul class="dance-styles-list">
+                    <li><a href="#">Western</a></li>
+                    <li><a href="#">B-boying</a></li>
+                    <li><a href="#">Hip Hop</a></li>
+                    <li><a href="#">Bollywood</a></li>
+                    <li><a href="#">Folk</a></li>
+                </ul>
+           </div> -->
+
+            <div class="footer-section choreography-info">
+                <h3>Choreography</h3>
+                <ul class="choreography-list">
+                    <li><a href="../Dance/Template/services.html">Weddings</a></li>
+                    <li><a href="../Dance/Template/services.html">Birthdays</a></li>
+                    <li><a href="../Dance/Template/services.html">Events</a></li>
+                    <li><a href="../Dance/Template/services.html">Ceremonies</a></li>
+                </ul>
+            </div>
+
+            <!-- <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div> -->
+
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@trilochanadance.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Trilochana Dance & Fitness Studio,</p>
+                <p>Nandhini Layout, Bangalore</p>
+
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subscribe">
+            <p class="subscribe-offer"></p>
+
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Trilochana Dance & Fitness Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../Dance/JS/script.js"></script>
+    <script>
+        //arrow button
+        document.addEventListener('DOMContentLoaded', function () {
+            const arrowButton = document.getElementById('arrowButton');
+            const closeButton = document.getElementById('closeButton');
+            const branchInfo = document.getElementById('branchInfo');
+            const videoBackground = document.getElementById('video-background');
+            const branchButtons = document.querySelectorAll('.branch-button');
+            let isOpen = false;
+
+            function toggleBranchInfo() {
+                if (isOpen) {
+                    branchInfo.style.right = '-300px';
+                    arrowButton.style.display = 'block';
+                } else {
+                    branchInfo.style.right = '0';
+                    arrowButton.style.display = 'none';
+                }
+                isOpen = !isOpen;
+            }
+
+            arrowButton.addEventListener('click', toggleBranchInfo);
+            closeButton.addEventListener('click', toggleBranchInfo);
+
+            branchButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const videoSrc = this.getAttribute('data-video');
+                    changeVideo(videoSrc);
+                });
+            });
+
+            function changeVideo(src) {
+                videoBackground.innerHTML = `
+                    <source src="${src}" type="video/mp4">
+                    Your browser does not support the video tag.
+                `;
+                videoBackground.load();
+                videoBackground.play();
+            }
+        });
+
+//event schedule
+   document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.dance-style-card');
+    const popup = document.getElementById('details-popup');
+    const popupTitle = document.getElementById('popup-title');
+    const popupTableBody = document.getElementById('popup-table-body');
+    const closePopup = document.getElementById('closePopup');
+
+    const details = {
+        'gymnastics': [
+            { day: 'Monday to Friday', time: '6 AM - 7 AM', fee: '₹3500' },
+            { day: 'Saturday', time: '8 AM - 9 AM', fee: '₹700' },
+            { day: 'Sunday', time: '5 PM - 6 PM', fee: '₹1050' }
+        ],
+        'karate': [
+            { day: 'Monday to Friday', time: '7 AM - 8 AM', fee: '₹4000' },
+            { day: 'Saturday', time: '9 AM - 10 AM', fee: '₹800' },
+            { day: 'Sunday', time: '4 PM - 5 PM', fee: '₹1200' }
+        ],
+        'aerobic': [
+            { day: 'Monday to Friday', time: '5 PM - 6 PM', fee: '₹3000' },
+            { day: 'Saturday', time: '10 AM - 11 AM', fee: '₹600' },
+            { day: 'Sunday', time: '6 PM - 7 PM', fee: '₹900' }
+        ],
+        'yoga': [
+            { day: 'Monday to Friday', time: '6 AM - 7 AM', fee: '₹2500' },
+            { day: 'Saturday', time: '7 AM - 8 AM', fee: '₹500' },
+            { day: 'Sunday', time: '5 PM - 6 PM', fee: '₹750' }
+        ]
+    };
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const style = this.querySelector('img').id;
+            popupTitle.textContent = this.querySelector('.dance-style-title').textContent;
+            
+            popupTableBody.innerHTML = '';
+            details[style].forEach(item => {
+                const row = `<tr>
+                    <td>${item.day}</td>
+                    <td>${item.time}</td>
+                    <td>${item.fee}</td>
+                </tr>`;
+                popupTableBody.innerHTML += row;
+            });
+
+            popup.style.display = 'block';
+            
+            // Scroll to the popup
+            popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    closePopup.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+});
+</script>
+    <script>
+        function mahalakshmi() {
+            var branch = "mahalakshmi";
+            window.location.href = ("index.html?branch=" + branch);
+
+        }
+        function nandhinilayout() {
+            var branch = "nandhinilayout";
+            window.location.href = ("index.html?branch=" + branch);
+
+        }
+        function laggere() {
+            var branch = "laggere";
+            window.location.href = ("index.html?branch=" + branch);
+
+        }
+    </script>
+
+    <script>
+
+        window.onload = function () {
+            var url = document.location.href,
+                params = url.split('?')[1].split('&'),
+                data = {}, tmp;
+            for (var i = 0, l = params.length; i < 1; i++) {
+                tmp = params[i].split('=');
+                data[tmp[0]] = tmp[1];
+            }
+            var c = data.branch;
+
+            var path = "media/Branch/" + c + "/main.mp4";
+            console.log(path);
+            document.getElementById('myVideo').src = path;
+
+            var path1 = "media/Branch/" + c + "/gymnastics.jpg";
+            console.log(path1);
+            document.getElementById('gymnastics').src = path1;
+
+            var path2 = "media/Branch/" + c + "/karate.jpg";
+            console.log(path2);
+            document.getElementById('karate').src = path2;
+
+            var path3 = "media/Branch/" + c + "/aerobic.jpg";
+            console.log(path3);
+            document.getElementById('aerobic').src = path3;
+
+            var path4 = "media/Branch/" + c + "/yoga1.jpg";
+            console.log(path4);
+            document.getElementById('yoga').src = path4;
+        }
+    </script>
+</body>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="JS/connection.js"></script>
+<script src="JS/checkpermission.js"></script>
+<script src="JS/index.js"></script>
+<script>
+    document.getElementById("loadingOverlay").style.display="none";
+</script>
+
+</html>

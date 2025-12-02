@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Academy Admin Panel</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link rel="stylesheet" href="../CSS/admin_android.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle" id="header-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <a href="../dashboard.html" class="nav__logo">
+            <h1 class="nav__logo-name">TRILOCHANA</h1>
+        </a>
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+
+                <div class="nav__list">
+                    <a href="../dashboard.html" class="nav__link ">
+                        <i class="fas fa-home nav__icon"></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    <a href="../Template/upload.html" class="nav__link ">
+                        <i class="fas fa-upload nav__icon"></i>
+                        <span class="nav__name">Upload Media</span>
+                    </a>
+                    <a href="../Template/profile.html" class="nav__link">
+                        <i class="fas fa-users nav__icon"></i>
+                        <span class="nav__name">Student Profile</span>
+                    </a>
+                    <a href="../Template/exam.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Exam Details</span>
+                    </a>
+                    <a href="../Template/add.html" class="nav__link ">
+                        <i class="fas fa-user-plus nav__icon"></i>
+                        <span class="nav__name">Add Receptionist</span>
+                    </a>
+                    <a href="../Template/update.html" class="nav__link active">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Update Event</span>
+                    </a>
+                    <a href="#login" class="nav__link ">
+                    <i class="fas fa-sign-out-alt nav__icon"></i>
+                    <span class="nav__name" onclick="logout()">Logout</span>
+                    
+                </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="update-event-container">
+        <div class="update-event-form">
+            <div class="update-event-form-group">
+                <label for="branch" class="update-event-label">Branch:</label>
+                <select id="branch" class="update-event-select">
+                    <option value="nandini">Select Branch</option>
+                    <option value="nandini">Nandini Layout</option>
+                    <option value="mahalakshmi">Mahalakshmi Layout</option>
+                    <option value="laggere">Laggere</option>
+                </select>
+            </div>
+            <div class="update-event-form-group">
+                <label for="martial-arts" class="update-event-label">Martial Arts:</label>
+                <select id="martial-arts" class="update-event-select">
+                    <option value="gymnastics">Select Martial Arts</option>
+                    <option value="gymnastics">Gymnastics</option>
+                    <option value="karate">Karate</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="aerobics">Aerobics</option>
+                </select>
+            </div>
+            <div class="update-event-form-group">
+                <label for="day" class="update-event-label">Day:</label>
+                <select id="day" class="update-event-select">
+                    <option value="monday">Select Day</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                </select>
+            </div>
+            <div class="update-event-form-group">
+                <label for="time" class="update-event-label">Time:</label>
+                <select id="time" class="update-event-select">
+                    <option value="9am">Select Time</option>
+                    <option value="9am">9:00 AM</option>
+                    <option value="10am">10:00 AM</option>
+                    <option value="11am">11:00 AM</option>
+                    <option value="12pm">12:00 PM</option>
+                    <option value="1pm">1:00 PM</option>
+                    <option value="2pm">2:00 PM</option>
+                    <option value="3pm">3:00 PM</option>
+                    <option value="4pm">4:00 PM</option>
+                    <option value="5pm">5:00 PM</option>
+                </select>
+            </div>
+            <div class="update-event-form-group">
+                <label for="fee" class="update-event-label">Fee:</label>
+                <input type="number" id="fee" class="update-event-input" placeholder="Enter fee">
+            </div>
+            <button onclick="addEvent()" class="update-event-button">Update</button>
+        </div>
+    </div>
+
+    <div id="eventTableContainer" style="display: none;">
+        <h3 class="event-table-title">Added Event Details</h3>
+        <table id="eventTable" class="update-event-table">
+            <thead>
+                <tr>
+                    <th class="update-event-th">Branch</th>
+                    <th class="update-event-th">Martial Arts</th>
+                    <th class="update-event-th">Day</th>
+                    <th class="update-event-th">Time</th>
+                    <th class="update-event-th">Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <script src="../JS/admin_dashboard.js">
+
+    </script>
+    
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="../../JS/connection.js"></script>
+<script src="../../JS/index.js"></script>
+
+
+<script>
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+
+            //checkPermission(user);	
+        }
+        else {
+            window.location.href = "../../index.html";
+        }
+    });
+
+    
+</script>
+
+
+<script>
+
+
+
+</script>
+
+</html>

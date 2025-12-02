@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRILOCHANA</title>
+    <link rel="stylesheet" href="../AdmissionForm/CSS/join.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <button class="openbtn" onclick="openNav()">☰</button>
+            <div class="txt-containerr">
+                <span class="txt-head">Trilochana</span>
+                <div class="txt-powered-by">Dance & Fitness Studio</div>
+            </div>
+        </div>
+        <div id="mySidepanel" class="sidepanel">
+            <!-- <div><img src="media/logo.png" class="android_menu_logo"></div> -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="../index.html" onclick="closeNavOnClick()">HOME</a>
+            <a href="../Dance/Template/about.html" onclick="closeNavOnClick()">ABOUT</a>
+            <a href="../Dance/Template/classes.html" onclick="closeNavOnClick()">STYLES</a>
+            <a href="../Dance/Template/services.html" onclick="closeNavOnClick()">SERVICES</a>
+            <a href="../Dance/Template/contact.html" onclick="closeNavOnClick()">CONTACT</a>
+            <a href="../Dance/Template/gallery.html" onclick="closeNavOnClick()">GALLERY</a>
+        </div>
+
+
+
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"></a>
+            </div>
+            <a href="#" class="brand-info">
+                <h1>Trilochana</h1>
+                <p>Dance & Fitness Studio</p>
+            </a>
+
+        </nav>
+
+        <div class="header-image-container">
+            <img src="../AdmissionForm/Media/bg11.jpg" alt="Header Image" class="header-image">
+            <div class="header-overlay">
+                <h2>Register Today!</h2>
+                <p>Let your dance story begin.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="legal-terms">
+            <div id="qrCode" class="qr-code"></div>
+            <h2 class="legal">Legal Terms and Conditions</h2>
+            <div class="terms-container">
+                <p><b>1. Eligibility:</b> Students of all ages and skill levels are welcome. For students under 18, parental
+                    consent is required.</p>
+    
+                <p><b>2. Registration:</b> Admission is confirmed only upon completion of the registration form and payment of
+                    applicable fees.</p>
+    
+                <p><b>3. Fees:</b> All fees must be paid in advance. Refunds are not provided for missed classes.</p>
+    
+                <p><b>4. Attendance:</b> Regular attendance is expected. Please inform the studio in advance of any absences.
+                </p>
+    
+                <p><b>5. Conduct:</b> Students are expected to behave respectfully towards instructors and fellow students.
+                    Disruptive behavior may result in dismissal from the program.</p>
+    
+                <p><b>6. Dress Code:</b> Appropriate dance attire and footwear are required for all classes. Details will be
+                    provided upon registration.</p>
+    
+                <p> <b>7. Health and Safety:</b> Students must disclose any medical conditions or injuries that may affect their
+                    participation. The studio reserves the right to request a doctor's note.</p>
+    
+                <p><b>8. Photography/Videography:</b> The studio may use photographs or videos of students for promotional
+                    purposes. By signing up, you grant permission for such use.</p>
+    
+                <p><b>9. Termination:</b> The studio reserves the right to terminate a student's enrollment for breach of these
+                    terms and conditions or any other reason deemed necessary.</p>
+    
+            </div>
+            <div class="acceptance">
+                <label>
+                    <input type="checkbox" id="acceptTerms" required>
+                    I Accept the Terms and Conditions
+                </label>
+            </div>
+            <div class="next-button-container">
+                <button id="nextButton" class="button-link" disabled>Next</button>
+            </div>
+        </section>
+
+        <section class="inquiry-section" style="display: none;">
+            <div class="inquiry-form-container">
+                <div class="profile">
+                    <h2 class="inquiry-title">AdmissionForm</h2>
+
+                    <div class="age-selection" id="ageSelection">
+                        <label class="age-option">
+                            <input class="radio-title" type="radio" name="ageGroup" value="below18" id="below18"
+                                required>
+                            <span>Below 18</span>
+                        </label>
+                        <label class="age-option">
+                            <input class="radio-title" type="radio" name="ageGroup" value="above18" id="above18">
+                            <span>Above 18</span>
+                        </label>
+                    </div>
+
+                    <!-- Form for students above 18 years -->
+                    <div class="form18">
+                        <form id="above18Form" class="student-form above18Form"
+                            onsubmit="return validateForm('above18Form')">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="fullName">Full Name:</label>
+                                    <input type="text" id="above18fullName" name="fullName" required
+                                        pattern="[A-Za-z ]{1,50}"
+                                        title="Only letters and spaces, maximum 50 characters">
+                                </div>
+                                <div class="form-field">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="above18email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="tel" id="above18phone" name="phone" required pattern="[0-9]{10}"
+                                        title="10 digit phone number">
+                                </div>
+                                <div class="form-field">
+                                    <label for="address">Address:</label>
+                                    <input type="text" id="above18address" name="address" required maxlength="100">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="govtId">Government ID:</label>
+                                    <input type="file" id="above18govtId" name="govtId" accept="image/*">
+                                </div>
+                                <div class="form-field">
+                                    <label for="dob">Date of Birth:</label>
+                                    <input type="date" id="above18dob" name="dob" required max="2006-07-15">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="age">Age:</label>
+                                    <input type="number" id="above18age" name="age" required min="18" max="100">
+                                </div>
+                                <div class="form-field">
+                                    <label for="gender">Gender:</label>
+                                    <select id="above18gender" name="gender" required>
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="previousexperience">Previous Experience:</label>
+                                    <input type="text" id="above18experience" name="experience" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="school">Name of Previous School:</label>
+                                    <input type="text" id="above18school" name="school" >
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="course">Course:</label>
+                                    <select id="above18course" name="course" required>
+                                        <option value="">Select Dance Style</option>
+                                        <option value="western">Western</option>
+                                        <option value="hiphop">Hip Hop</option>
+                                        <option value="bollywood">Bollywood</option>
+                                        <option value="folk">Folk</option>
+                                        <option value="filmy">Filmy</option>
+                                        <option value="bboying">B-boying</option>
+                                        <option value="freestyle">Freestyle</option>
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label for="branch">Branch:</label>
+                                    <input type="text" id="above18branch" name="above18branch" required maxlength="100">
+                                </div>
+                            </div>
+                            <div class="form-row" id="otherCourseField" style="display: none;">
+                                <div class="form-field full-width">
+                                    <label for="otherCourse">Other Styles:</label>
+                                    <input type="text" id="above18otherCourse" name="otherCourse">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="courseStart">Course Start Date:</label>
+                                    <input type="date" id="above18courseStart" name="courseStart" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="courseEnd">Course End Date:</label>
+                                    <input type="date" id="above18courseEnd" name="courseEnd" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="courseBatch">Course Batch (Timing):</label>
+                                    <input type="text" id="above18batchTiming" name="courseBatch" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="medicalHistory">Medical History:</label>
+                                    <select id="above18medicalHistory" name="medicalHistory" required>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row" id="medicalDescriptionRow" style="display: none;">
+                                <div class="form-field full-width">
+                                    <label for="medicalDescription">Medical Description:</label>
+                                    <textarea id="above18medicalDescription" name="medicalDescription"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="emergencyName">Emergency Contact Name:</label>
+                                    <input type="text" id="above18emergencyName" name="emergencyName" required
+                                        pattern="[A-Za-z ]{1,50}"
+                                        title="Only letters and spaces, maximum 50 characters">
+                                </div>
+                                <div class="form-field">
+                                    <label for="emergencyNumber">Emergency Contact Number:</label>
+                                    <input type="tel" id="above18emergencyNumber" name="emergencyNumber" required
+                                        pattern="[0-9]{10}" title="10 digit phone number">
+                                </div>
+                            </div>
+                            <button type="submit" id="submit">Submit</button>
+                        </form>
+
+                        <!-- Form for students below 18 years -->
+                        <form id="below18Form" class="student-form below18Form"
+                            onsubmit="return validateForm('below18Form')" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="fullName">Full Name:</label>
+                                    <input type="text" id="below18fullName" name="fullName" required
+                                        pattern="[A-Za-z ]{1,50}"
+                                        title="Only letters and spaces, maximum 50 characters">
+                                </div>
+                                <div class="form-field">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="below18email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="tel" id="below18phone" name="phone" required pattern="[0-9]{10}"
+                                        title="10 digit phone number">
+                                </div>
+                                <div class="form-field">
+                                    <label for="address">Address:</label>
+                                    <input type="text" id="below18address" name="address" required maxlength="100">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="govtId">Government ID:</label>
+                                    <input type="file" id="below18govtId" name="govtId" accept="image/*">
+                                </div>
+                                <div class="form-field">
+                                    <label for="dob">Date of Birth:</label>
+                                    <input type="date" id="below18dob" name="dob" required min="2006-07-16">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="age">Age:</label>
+                                    <input type="number" id="below18age" name="age" required min="1" max="17">
+                                </div>
+                                <div class="form-field">
+                                    <label for="gender">Gender:</label>
+                                    <select id="below18gender" name="gender" required>
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="parentName">Parent/Guardian Name:</label>
+                                    <input type="text" id="parentName" name="parentName" required
+                                        pattern="[A-Za-z ]{1,50}"
+                                        title="Only letters and spaces, maximum 50 characters">
+                                </div>
+                                <div class="form-field">
+                                    <label for="parentNumber">Parent/Guardian Number:</label>
+                                    <input type="tel" id="parentNumber" name="parentNumber" required pattern="[0-9]{10}"
+                                        title="10 digit phone number">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="previousexperience">Previous Experience:</label>
+                                    <input type="text" id="below18experience" name="experience" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="school">Name of Previous School:</label>
+                                    <input type="text" id="below18school" name="school" >
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="below18course">Course:</label>
+                                    <select id="below18course" name="course" required>
+                                        <option value="">Select Dance Style</option>
+                                        <option value="western">Western</option>
+                                        <option value="hiphop">Hip Hop</option>
+                                        <option value="bollywood">Bollywood</option>
+                                        <option value="folk">Folk</option>
+                                        <option value="filmy">Filmy</option>
+                                        <option value="b-boying">B-boying</option>
+                                        <option value="freestyle">Freestyle</option>
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label for="branch">Branch:</label>
+                                    <input type="text" id="below18branch" name="below18branch" required maxlength="100">
+                                </div>
+                            </div>
+                            <div class="form-row" id="otherCourseFieldBelow18" style="display: none;">
+                                <div class="form-field full-width">
+                                    <label for="otherbelow18course">Other Styles:</label>
+                                    <input type="text" id="otherbelow18course" name="otherCourse">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="courseStart">Course Start Date:</label>
+                                    <input type="date" id="below18courseStart" name="courseStart" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="courseEnd">Course End Date:</label>
+                                    <input type="date" id="below18courseEnd" name="courseEnd" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="courseBatch">Course Batch (Timing):</label>
+                                    <input type="text" id="below18batchTiming" name="courseBatch" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="medicalHistory">Medical History:</label>
+                                    <select id="below18medicalHistory" name="medicalHistory" required>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row" id="medicalDescriptionRow" style="display: none;">
+                                <div class="form-field full-width">
+                                    <label for="medicalDescription">Medical Description:</label>
+                                    <textarea id="below18medicalDescription" name="medicalDescription"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="emergencyName">Emergency Contact Name:</label>
+                                    <input type="text" id="below18emergencyName" name="emergencyName" required
+                                        pattern="[A-Za-z ]{1,50}"
+                                        title="Only letters and spaces, maximum 50 characters">
+                                </div>
+                                <div class="form-field">
+                                    <label for="emergencyNumber">Emergency Contact Number:</label>
+                                    <input type="tel" id="below18emergencyNumber" name="emergencyNumber" required
+                                        pattern="[0-9]{10}" title="10 digit phone number">
+                                </div>
+                            </div>
+                            <button type="submit" id="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="loadingOverlay" class="loading-overlay">
+        <img src="../media/spinner.gif" alt="Loading..." class="loading-gif">
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h3>About Us</h3>
+                <ul class="about-list">
+                    <li><a href="../Template/about.html">About Us</a></li>
+                    <li><a href="../Template/classes.html">Dance Styles</a></li>
+                    <li><a href="../Template/services.html">Services</a></li>
+                    <li><a href="../Template/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section choreography-info">
+                <h3>Choreography</h3>
+                <ul class="choreography-list">
+                    <li><a href="../Template/services.html">Weddings</a></li>
+                    <li><a href="../Template/services.html">Birthdays</a></li>
+                    <li><a href="../Template/services.html">Events</a></li>
+                    <li><a href="../Template/services.html">Ceremonies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@trilochanadance.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Trilochana Dance & Fitness Studio,</p>
+                <p>Nandhini Layout, Bangalore</p>
+
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subscribe">
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Trilochana Dance & Fitness Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+    <script src="../JS/connection.js"></script>
+    <script src="../AdmissionForm/JS/join.js"></script>
+    <script src="../AdmissionForm/JS/below18.js"></script>
+
+
+</body>
+
+</html>

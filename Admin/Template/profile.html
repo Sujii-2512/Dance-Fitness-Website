@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Academy Admin Panel</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link rel="stylesheet" href="../CSS/admin_android.css">
+    <link rel="stylesheet" href="../CSS/admin_student-profile.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle" id="header-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <a href="../dashboard.html" class="nav__logo">
+
+            <h1 class="nav__logo-name1">TRILOCHANA</h1>
+        </a>
+        <div class="top-nav-logo">
+            <img src="../Media/pic1.png" alt="Logo" class="top-nav-logo-img" id="top-nav-logo-img">
+            <input type="file" id="avatar-input" style="display: none;" accept="image/*">
+        </div>
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+
+        <nav class="nav">
+            <div>
+
+                <div class="nav__list">
+                    <a href="../dashboard.html" class="nav__link ">
+                        <i class="fas fa-home nav__icon"></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    <a href="../Template/Upload.html" class="nav__link ">
+                        <i class="fas fa-upload nav__icon"></i>
+                        <span class="nav__name">Upload Media</span>
+                    </a>
+
+                    <a href="../Template/profile.html" class="nav__link active">
+                        <i class="fas fa-users nav__icon"></i>
+                        <span class="nav__name">Student Profile</span>
+                    </a>
+                    <a href="../Template/exam.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Exam Details</span>
+                    </a>
+                    <a href="../Template/add.html" class="nav__link">
+                        <i class="fas fa-user-plus nav__icon"></i>
+                        <span class="nav__name">Add Receptionist</span>
+                    </a>
+                    <a href="../Template/update.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Update Event</span>
+                    </a>
+        
+
+                    <a href="#login" class="nav__link ">
+                        <i class="fas fa-sign-out-alt nav__icon"></i>
+                        <span class="nav__name" onclick="logout()">Logout</span>
+                        
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="fetch-container">
+        <div id="fetch-inputs">
+            <input type="text" id="student-id-input" placeholder="Enter Student ID">
+            <button id="fetch-profile-btn">Fetch Profile</button>
+        </div>
+        <div id="profile-container" style="display: none;">
+            <div class="profile-layout">
+                <!-- profile page -->
+                <nav class="navbar">
+                    <img src="../Media/pic1.png" id="navbar-avatar">
+                    <ul class="nav-links">
+                        <li><a href="#profile" id="profile-link"><i class="fas fa-user"></i> PROFILE</a></li>
+                        <li><a href="#courses" id="courses-link"><i class="fas fa-book-open"></i>COURSE</a></li>
+                        <li><a href="#payment" id="payment-link"><i class="	fa fa-credit-card"></i>PAYMENT</a></li>
+                        <li><a href="#achievements" id="achievements-link"><i class="fas fa-trophy"></i>ACHIEVEMENTS</a>
+                        </li>
+                        <li><a href="#competitions" id="competitions-link"><i class="fas fa-images"></i>GALLERY</a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <main class="main1">
+                    <section id="profile" class="active">
+                        <h2>PROFILE</h2>
+                        <div class="profile-info">
+                            <div class="info-group">
+                                <label for="student-name">Name</label>
+                                <span id="student-name">John Doe</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-id">ID</label>
+                                <span id="student-id">STU123456789</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-gender">Gender</label>
+                                <span id="student-gender">Male</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-dob">Date of Birth</label>
+                                <span id="student-dob">01/01/2000</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-email">Email</label>
+                                <span id="student-email">john.doe@example.com</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-phone">Phone</label>
+                                <span id="student-phone">(123) 456-7890</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-address">Address</label>
+                                <span id="student-address">123 Dance St, City, State, ZIP</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="student-age">Age</label>
+                                <span id="student-age">24</span>
+                            </div>
+                           
+                                <div class="info-group" id="parent-guardian-info" style="display: none;">
+                                    <label for="parent-guardian-name">Parent/Guardian Name:</label>
+                                    <span id="parent-guardian-name"></span>
+                                </div>
+                                <div class="info-group" id="parent-guardian-info1" style="display: none;">
+                                    <label for="parent-guardian-contact">Parent/Guardian Contact:</label>
+                                    <span id="parent-guardian-contact"></span>
+                                </div>
+                           
+                            <div class="info-group">
+                                <label for="previousexperience">Previous Experience</label>
+                                <span id="previousexperience">5 Years</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="school">Name of School</label>
+                                <span id="school">XYZ, ABC Dance School</span>
+                            </div>
+                            <div class="info-group" id="government-id-group">
+                                <label for="government-id">Government ID</label>
+                                <span id="government-id">
+                                    <img src="../Media/aadhaar.jpg" alt="Government ID"
+                                        style="width: 250px; height: 150px;">
+                                </span>
+                            </div>
+                        </div>
+
+                        <h2>MEDICAL INFORMATION</h2>
+                        <div class="profile-info">
+                            <div class="info-group">
+                                <label for="medical-conditions">Medical History</label>
+                                <span id="medical-conditions">Yes</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="allergies">Description</label>
+                                <span id="allergies">Leg Fracture 2 years back</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="emergency-name">Emergency Name</label>
+                                <span id="emergency-name">Tejaswini</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="emergency-contact">Emergency Contact</label>
+                                <span id="emergency-contact">(123) 456-7890</span>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="courses" class="hidden">
+                        <h2>COURSES</h2>
+                        <div class="course-info">
+                            <div class="info-group">
+                                <label for="dance-style">Course (Dance Style)</label>
+                                <span id="dance-style">Ballet</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="course-duration">Course Duration</label>
+                                <span id="course-duration">3 months</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="course-start-date">Course Start-Date</label>
+                                <span id="course-start-date">9/13/2024</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="course-end-date">Course End-Date</label>
+                                <span id="course-end-date">12/23/2024</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="course-fees">Course Fees</label>
+                                <span id="course-fees">Rs.3,000</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="batch-timing">Batch Timing</label>
+                                <span id="batch-timing">7:00 AM - 8:30 AM</span>
+                            </div>
+                            <div class="info-group">
+                                <label for="branch">Branch</label>
+                                <span id="branch">Nandini Layout</span>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('main section');
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+
+    </script>
+    <script src="../JS/admin_dashboard.js"></script>
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="../../JS/connection.js"></script>
+<script src="../../JS/index.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
+    const fetchBtn = document.getElementById('fetch-profile-btn');
+    const studentIdInput = document.getElementById('student-id-input');
+    const profileContainer = document.getElementById('profile-container');
+    const parentGuardianInfo = document.getElementById('parent-guardian-info');
+    const parentGuardianInfo1 = document.getElementById('parent-guardian-info1');
+
+
+    if (!fetchBtn || !studentIdInput || !profileContainer || !parentGuardianInfo ||!parentGuardianInfo1) {
+        console.error('One or more required elements not found');
+        return;
+    }
+
+    fetchBtn.addEventListener('click', function() {
+        console.log('Fetch button clicked');
+        const studentId = studentIdInput.value.trim();
+        if (studentId) {
+            fetchStudentProfile(studentId);
+        } else {
+            alert('Please enter a valid Student ID');
+        }
+    });
+
+    function fetchStudentProfile(studentId) {
+        console.log('Fetching profile for student ID:', studentId);
+        const dbRef = firebase.database().ref('data');
+
+        dbRef.once('value')
+            .then((snapshot) => {
+                console.log('Database snapshot received:', snapshot.val());
+                let studentData = null;
+                snapshot.forEach((ageGroupSnapshot) => {
+                    ageGroupSnapshot.forEach((studentSnapshot) => {
+                        const data = studentSnapshot.val();
+                        if (data.id === studentId) {
+                            studentData = data;
+                            console.log('Student data found:', studentData);
+                            return true;
+                        }
+                    });
+                    if (studentData) return true;
+                });
+
+                if (studentData) {
+                    updateProfileContainer(studentData);
+                    profileContainer.style.display = 'block';
+                } else {
+                    console.log('Student not found');
+                    alert('Student not found');
+                    profileContainer.style.display = 'none';
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching student data:", error);
+                alert('Error fetching student data');
+            });
+    }
+
+    function updateProfileContainer(data) {
+        console.log('Updating profile container with data:', data);
+
+        const isAbove18 = studentIdInput.value.includes('A');
+        const prefix = isAbove18 ? 'above18' : 'below18';
+
+        function updateElement(id, value) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value || 'N/A';
+            } else {
+                console.warn(`Element with id '${id}' not found`);
+            }
+        }
+
+        updateElement('student-name', data[`${prefix}fullName`]);
+        updateElement('student-id', data.id);
+        updateElement('student-gender', data[`${prefix}gender`]);
+        updateElement('student-dob', data[`${prefix}dob`]);
+        updateElement('student-email', data[`${prefix}email`]);
+        updateElement('student-phone', data[`${prefix}phone`]);
+        updateElement('student-address', data[`${prefix}address`]);
+        updateElement('student-age', data[`${prefix}age`]);
+
+        if (isAbove18) {
+            parentGuardianInfo.style.display = 'none';
+            parentGuardianInfo1.style.display = 'none';
+        } else {
+            parentGuardianInfo.style.display = 'block';
+            parentGuardianInfo1.style.display = 'block';
+            updateElement('parent-guardian-name', data.parentname);
+            updateElement('parent-guardian-contact', data.parentnumber);
+        }
+
+        updateElement('previousexperience', data[`${prefix}previousexperience`]);
+        updateElement('school', data[`${prefix}school`]);
+        updateElement('medical-conditions', data[`${prefix}medicalHistory`]);
+        updateElement('allergies', data[`${prefix}medicalDescription`]);
+        updateElement('emergency-name', data[`${prefix}emergencyName`]);
+        updateElement('emergency-contact', data[`${prefix}emergencyNumber`]);
+
+        const govtIdElement = document.getElementById('government-id');
+        if (govtIdElement) {
+            if (data[`${prefix}govtId`]) {
+                govtIdElement.innerHTML = `<img src="${data[`${prefix}govtId`]}" alt="Government ID" style="width: 250px; height: 150px;">`;
+            } else {
+                govtIdElement.textContent = 'Not Uploaded';
+            }
+        }
+
+        let courseValue = data[`${prefix}course`];
+        if (courseValue === 'others' && data[`${prefix}otherCourse`]) {
+            courseValue = data[`${prefix}otherCourse`];
+        }
+        updateElement('dance-style', courseValue);
+        updateElement('course-start-date', data[`${prefix}courseStart`]);
+        updateElement('course-end-date', data[`${prefix}courseEnd`]);
+        updateElement('batch-timing', data[`${prefix}batchTiming`]);
+        updateElement('branch', data[`${prefix}branch`]);
+
+        console.log('Profile container update complete');
+    }
+});
+
+    </script>
+    
+<script>
+
+    
+
+firebase.auth().onAuthStateChanged(function(user){
+    if(user)
+    {
+    
+        //checkPermission(user);	
+    }
+    else{
+        window.location.href="../../index.html";
+    }
+    });
+
+    
+    </script>
+</html>

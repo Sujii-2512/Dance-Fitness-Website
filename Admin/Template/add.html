@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Academy Admin Panel</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link rel="stylesheet" href="../CSS/admin_android.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body class="recep" id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle" id="header-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <a href="../dashboard.html" class="nav__logo">
+            <h1 class="nav__logo-name">TRILOCHANA</h1>
+        </a>
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+
+                <div class="nav__list">
+                    <a href="../dashboard.html" class="nav__link ">
+                        <i class="fas fa-home nav__icon"></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    <a href="../Template/upload.html" class="nav__link ">
+                        <i class="fas fa-upload nav__icon"></i>
+                        <span class="nav__name">Upload Media</span>
+                    </a>
+                    <a href="../Template/profile.html" class="nav__link">
+                        <i class="fas fa-users nav__icon"></i>
+                        <span class="nav__name">Student Profile</span>
+                    </a>
+                    <a href="../Template/exam.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Exam Details</span>
+                    </a>
+                    <a href="../Template/add.html" class="nav__link active">
+                        <i class="fas fa-user-plus nav__icon"></i>
+                        <span class="nav__name">Add Receptionist</span>
+                    </a>
+                    <a href="../Template/update.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Update Event</span>
+                    </a>
+                    <a href="#login" class="nav__link ">
+                    <i class="fas fa-sign-out-alt nav__icon"></i>
+                    <span class="nav__name" onclick="logout()">Logout</span>
+                    
+                </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="branch-info-container">
+        <div class="input-row">
+            <div class="branch-dropdown">
+                <select id="branchSelect" class="branch-select" required>
+                    <option value="" disabled selected>-- select branch --</option>
+                    <option value="Nandini Layout">Nandini Layout</option>
+                    <option value="Mahalakshmi Layout">Mahalakshmi Layout</option>
+                    <option value="Laggere">Laggere</option>
+                </select>
+            </div>
+        
+            <div class="branch-input-field">
+                <input type="email" id="emailInput" placeholder="Email" class="branch-text-input" required>
+            </div>
+        
+            <div class="branch-input-field">
+                <input type="tel" id="contactInput" name="phone" pattern="[0-9]{10}"
+                placeholder="Contact Number" class="branch-text-input" required>
+            </div>
+        
+            <button id="addBranchBtn" class="branch-add-btn">Add</button>
+        </div>
+    </div>
+    
+    <div id="branchTableContainer" class="branch-table-container" style="display: none;">
+        <table id="branchTable" class="branch-table">
+            <thead>
+                <tr>
+                    <th>Branch</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="branchTableBody"></tbody>
+        </table>
+    </div>
+    
+    <div id="detailsPopup" class="details-popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h3 class="branchdetails">Branch Details</h3>
+            <p id="popupDetails"></p>
+        </div>
+    </div>
+
+    <script src="../JS/admin_dashboard.js">
+
+    </script>
+    
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="../../JS/connection.js"></script>
+<script src="../../JS/index.js"></script>
+
+<script>
+    // ADD RECEPTIONIST
+    document.addEventListener('DOMContentLoaded', function() {
+    const branchSelect = document.getElementById('branchSelect');
+    const emailInput = document.getElementById('emailInput');
+    const contactInput = document.getElementById('contactInput');
+    const addBranchBtn = document.getElementById('addBranchBtn');
+    const branchTableBody = document.getElementById('branchTableBody');
+    const branchTableContainer = document.getElementById('branchTableContainer');
+
+    addBranchBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Check HTML5 validation
+        if (!branchSelect.checkValidity()) {
+            branchSelect.reportValidity();
+            return;
+        }
+        if (!emailInput.checkValidity()) {
+            emailInput.reportValidity();
+            return;
+        }
+        if (!contactInput.checkValidity()) {
+            contactInput.reportValidity();
+            return;
+        }
+
+        // If all validations pass, proceed with adding the entry
+        const branch = branchSelect.value;
+        const email = emailInput.value;
+        const contact = contactInput.value;
+
+        // Show the table container if it's hidden
+        if (branchTableContainer.style.display === 'none') {
+            branchTableContainer.style.display = 'block';
+        }
+
+        const newRow = branchTableBody.insertRow();
+        newRow.innerHTML = `
+            <td>${branch}</td>
+            <td>${email}</td>
+            <td>${contact}</td>
+            <td>
+                <button class="delete-btn">Delete</button>
+            </td>
+        `;
+
+        // Clear input fields
+        branchSelect.value = '';
+        emailInput.value = '';
+        contactInput.value = '';
+
+        // Add event listener to new delete button
+        const deleteBtn = newRow.querySelector('.delete-btn');
+
+        deleteBtn.addEventListener('click', function() {
+            if (confirm('Are you sure you want to delete this entry?')) {
+                branchTableBody.removeChild(newRow);
+                
+                // Hide the table if there are no more rows
+                if (branchTableBody.rows.length === 0) {
+                    branchTableContainer.style.display = 'none';
+                }
+            }
+        });
+    });
+});
+</script>
+<script>
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+
+            //checkPermission(user);	
+        }
+        else {
+            window.location.href = "../../index.html";
+        }
+    });
+// ADD RECEPTIONIST FOR TABLE POP UP
+document.addEventListener('DOMContentLoaded', function() {
+    const detailsPopup = document.getElementById('detailsPopup');
+    const closePopup = document.querySelector('.close-popup');
+    const popupDetails = document.getElementById('popupDetails');
+
+    // Function to show popup
+    function showPopup(details) {
+        popupDetails.textContent = details;
+        detailsPopup.style.display = 'block';
+    }
+
+    // Function to hide popup
+    function hidePopup() {
+        detailsPopup.style.display = 'none';
+    }
+
+    // Close popup when clicking on close button
+    closePopup.addEventListener('click', hidePopup);
+
+    // Close popup when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === detailsPopup) {
+            hidePopup();
+        }
+    });
+
+    // Assume you have a function to add a new row to the table
+    // In that function, you would add a click event listener to the view button:
+    function addNewRowToTable(branch, email, contact) {
+        // ... existing code to add row ...
+
+        const viewBtn = newRow.querySelector('.view-btn');
+        viewBtn.addEventListener('click', function() {
+            const details = `Branch: ${branch}\nEmail: ${email}\nContact: ${contact}`;
+            showPopup(details);
+        });
+    }
+});
+
+ 
+    
+</script>
+
+</html>

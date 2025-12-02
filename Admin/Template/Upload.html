@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Academy Admin Panel</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link rel="stylesheet" href="../CSS/admin_android.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle" id="header-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <a href="../dashboard.html" class="nav__logo">
+            <h1 class="nav__logo-name">TRILOCHANA</h1>
+        </a>
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+
+                <div class="nav__list">
+                    <a href="../dashboard.html" class="nav__link ">
+                        <i class="fas fa-home nav__icon"></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    <a href="../Template/upload.html" class="nav__link active">
+                        <i class="fas fa-upload nav__icon"></i>
+                        <span class="nav__name">Upload Media</span>
+                    </a>
+                    <a href="../Template/profile.html" class="nav__link">
+                        <i class="fas fa-users nav__icon"></i>
+                        <span class="nav__name">Student Profile</span>
+                    </a>
+                    <a href="../Template/exam.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Exam Details</span>
+                    </a>
+                    <a href="../Template/add.html" class="nav__link">
+                        <i class="fas fa-user-plus nav__icon"></i>
+                        <span class="nav__name">Add Receptionist</span>
+                    </a>
+                    <a href="../Template/update.html" class="nav__link">
+                        <i class="fas fa-book-open nav__icon"></i>
+                        <span class="nav__name">Update Event</span>
+                    </a>
+                    <a href="#login" class="nav__link ">
+                    <i class="fas fa-sign-out-alt nav__icon"></i>
+                    <span class="nav__name" onclick="logout()">Logout</span>
+                    
+                </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="button-container">
+        <div class="dropdown">
+            <select class="dropdown-select">
+                <option value="" disabled selected>-- select branch --</option>
+                <option value="nandini-layout">Nandini Layout</option>
+                <option value="mahalakshmi">Mahalakshmi Layout</option>
+                <option value="laggere">Laggere</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <select class="dropdown-select">
+                <option value="" disabled selected>Categories</option>
+                <option value="homepage-video">Homepage Video</option>
+                <option value="western-dance">Western Dance</option>
+                <option value="hip-hop">Hip Hop</option>
+                <option value="bollywood-fusion">Bollywood Fusion</option>
+                <option value="salsa-ballet">Salsa & Ballet</option>
+                <option value="folk">Folk</option>
+                <option value="b-boying">B-boying</option>
+                <option value="filmy">Filmy</option>
+                <option value="free-style">Free Style</option>
+                <option value="birthday">Birthday</option>
+                <option value="wedding">Wedding</option>
+                <option value="special-events">Special Events</option>
+                <option value="ceremonial-dances">Ceremonial Dances</option>
+                <option value="contact-image">Contact Image</option>
+                <option value="gallery-western">Gallery (western)</option>
+                <option value="gallery-hip-hop">Gallery (hip hop)</option>
+                <option value="gallery-b-boying">Gallery (b-boying)</option>
+                <option value="gallery-bollywood">Gallery (bollywood)</option>
+                <option value="gallery-folk">Gallery (folk)</option>
+            </select>
+        </div>
+
+        <div class="file-input-wrapper">
+            <input type="file" id="fileInput" style="display: none;">
+            <label for="fileInput" class="file-input-button">
+                <i class="fas fa-cloud-upload-alt"></i> Choose File
+            </label>
+            <span id="file-name"></span>
+        </div>
+
+        <button class="upload-btn">Upload</button>
+    </div>
+
+    <script src="../JS/admin_dashboard.js">
+
+    </script>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function (e) {
+            var fileName = e.target.files[0].name;
+            document.getElementById('file-name').textContent = fileName;
+        });
+
+    </script>
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="../../JS/connection.js"></script>
+<script src="../../JS/index.js"></script>
+
+
+<script>
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+
+            //checkPermission(user);	
+        }
+        else {
+            window.location.href = "../../index.html";
+        }
+    });
+
+    
+</script>
+
+</html>

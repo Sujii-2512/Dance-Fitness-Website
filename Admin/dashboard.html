@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Academy Admin Panel</title>
+    <link rel="stylesheet" href="../Admin/CSS/admin.css">
+    <link rel="stylesheet" href="../Admin/CSS/admin_android.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+
+
+    <header class="header" id="header">
+        <div class="header__toggle" id="header-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <a href="../Admin/dashboard.html" class="nav__logo">
+            <h1 class="nav__logo-name">TRILOCHANA</h1>
+        </a>
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div class="nav__list">
+                <a href="../Admin/dashboard.html" class="nav__link active">
+                    <i class="fas fa-home nav__icon"></i>
+                    <span class="nav__name">Dashboard</span>
+                </a>
+                <a href="../Admin/Template/Upload.html" class="nav__link">
+                    <i class="fas fa-upload nav__icon"></i>
+                    <span class="nav__name">Upload Media</span>
+                </a>
+
+                <a href="../Admin/Template/profile.html" class="nav__link">
+                    <i class="fas fa-users nav__icon"></i>
+                    <span class="nav__name">Student Profile</span>
+                </a>
+                <a href="../Admin/Template/exam.html" class="nav__link">
+                    <i class="fas fa-book-open nav__icon"></i>
+                    <span class="nav__name">Exam Details</span>
+                </a>
+                <a href="../Admin/Template/add.html" class="nav__link">
+                    <i class="fas fa-user-plus nav__icon"></i>
+                    <span class="nav__name">Add Receptionist</span>
+                </a>
+                <a href="../Admin/Template/update.html" class="nav__link">
+                    <i class="fas fa-book-open nav__icon"></i>
+                    <span class="nav__name">Update Event</span>
+                </a>
+
+                <a href="#login" class="nav__link ">
+                    <i class="fas fa-sign-out-alt nav__icon"></i>
+                    <span class="nav__name" onclick="logout()">Logout</span>
+
+                </a>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <div id="content">
+        <div class="container1">
+            <div class="branch-container">
+                <div class="box primary" id="branch1" onclick="nandhinilayout()">
+                    <a href="#" style="color: white;">
+                        <h3 class="h3">NANDHINI LAYOUT</h3>
+                    </a>
+                </div>
+                <div class="button-row" id="buttonRow1" style="display: none;">
+                    <button class="nav-button1 enquiry-btn" onclick="openenquiry()">Enquiry</button>
+                    <div class="admission-dropdown">
+                        <button class="nav-button1 admission-btn">Admission</button>
+                        <div class="admission-dropdown-content">
+                            <button onclick="openAdmission('above18', 'nandhinilayout')">Above 18</button>
+                            <button onclick="openAdmission('below18', 'nandhinilayout')">Below 18</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="branch-container">
+                <div class="box success" id="branch2" onclick="mahalakshmi()">
+                    <a href="#" style="color: white;">
+                        <h3 class="h3">MAHALAKSHMI LAYOUT</h3>
+                    </a>
+                </div>
+                <div class="button-row" id="buttonRow2" style="display: none; ">
+                    <button class="nav-button2 enquiry-btn" onclick="openenquiry()">Enquiry</button>
+                    <div class="admission-dropdown">
+                        <button class="nav-button2 admission-btn">Admission</button>
+                        <div class="admission-dropdown-content">
+                            <button onclick="openAdmission('above18', 'mahalakshmi')">Above 18</button>
+                            <button onclick="openAdmission('below18', 'mahalakshmi')">Below 18</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="branch-container">
+                <div class="box danger" id="branch3" onclick="laggere()">
+                    <a href="#" style="color: white;">
+                        <h3 class="h3">LAGGERE</h3>
+                    </a>
+                </div>
+                <div class="button-row" id="buttonRow3" style="display: none;">
+                    <button class="nav-button3 enquiry-btn" onclick="openenquiry()">Enquiry</button>
+                    <div class="admission-dropdown">
+                        <button class="nav-button3 admission-btn">Admission</button>
+                        <div class="admission-dropdown-content">
+                            <button onclick="openAdmission('above18', 'laggere')">Above 18</button>
+                            <button onclick="openAdmission('below18', 'laggere')">Below 18</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <main>
+        <div id="enquirySection" style="display: none;">
+            <h4 class="enq">Enquires List :</h4>
+            <div class="search-container1">
+                <input type="text" id="search-enquiry" class="search-input" placeholder="Search for enquiry name...">
+            </div>
+            <div class="custom-container1">
+                <div class="card">
+                    <div class="custom-card-body">
+                        <div class="table-responsive">
+                            <table id="enquirytable" class="custom-table table-bordered table-hover"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="admissionSection" style="display: none;">
+            <div id="above18Section">
+                <h4 class="stu">Student Above 18 Details :</h4>
+                <div class="search-container">
+                    <input type="text" id="search-above18" class="search-input" placeholder="Search for student name (Above 18)...">
+                </div>
+                <div class="custom-container1">
+                    <div class="card">
+                        <div class="custom-card-body">
+                            <div class="table-responsive">
+                                <table id="above18_data" class="custom-table table-bordered table-hover">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="below18Section" style="display: none;">
+                <h4 class="stu1">Student Below 18 Details :</h4>
+                <div class="search-container">
+                    <input type="text" id="search-below18" class="search-input" placeholder="Search for student name (Below 18)...">
+                </div>
+                <div class="custom-container1">
+                    <div class="card">
+                        <div class="custom-card-body">
+                            <div class="table-responsive">
+                                <table id="below18_data" class="custom-table table-bordered table-hover">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="paymentSlipModal" class="modal">
+            <div class="modal-content payment-slip">
+                <span class="close">&times;</span>
+                <div class="slip-header">
+                    <h2>TRILOCHANA Dance Academy</h2>
+                    <p>Official Payment Receipt</p>
+                </div>
+                <div class="slip-details">
+                    <div class="slip-row">
+                        <span class="slip-label">Date:</span>
+                        <span id="slipDate" class="slip-value"></span>
+                    </div>
+                    <div class="slip-row">
+                        <span class="slip-label">Payment ID:</span>
+                        <span id="slipPaymentId" class="slip-value"></span>
+                    </div>
+                    <div class="slip-row">
+                        <span class="slip-label">Student Name:</span>
+                        <span id="slipStudentName" class="slip-value"></span>
+                    </div>
+                    <div class="slip-row">
+                        <span class="slip-label">Course:</span>
+                        <span id="slipCourse" class="slip-value"></span>
+                    </div>
+                    <div class="slip-row">
+                        <span class="slip-label">Amount Paid:</span>
+                        <span id="slipAmount" class="slip-value"></span>
+                    </div>
+                    <div class="slip-row">
+                        <span class="slip-label">Payment Mode:</span>
+                        <span id="slipMode" class="slip-value"></span>
+                    </div>
+                    <div class="slip-row">
+                        <span class="slip-label">Payment Date:</span>
+                        <span id="slipPaymentDate" class="slip-value"></span>
+                    </div>
+                   
+                </div>
+                <div class="slip-footer">
+                    <p>Thank you for your payment!</p>
+                    <button id="printButton" onclick="printPaymentSlip()">Print</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="applicationFormModal" class="modal">
+            <div class="modal-content application-form">
+                <span class="close">&times;</span>
+                <div class="form-header">
+                    <h2>TRILOCHANA Dance Academy</h2>
+                    <p>Student Application Form</p>
+                </div>
+                <div class="form-details">
+                    <table id="applicationFormTable"></table>
+                </div>
+                <div class="form-footer">
+                    <p>Thank you for your application!</p>
+                    <button id="printButton" onclick="printApplicationForm()">Print</button>
+                </div>
+                <div class="signature-container" style="display: none;" >
+                    <div class="signature-box1">
+                        <p>Owner's Signature</p>
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-box2">
+                        <p id="studentSignatureLabel">Student's Signature</p>
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        
+        
+    </main>
+    </div>
+
+
+    <script src="../Admin/JS/admin_dashboard.js"></script>
+
+
+    <script>
+
+        function mahalakshmi() {
+            var branch = "mahalakshmi";
+            window.location.href = ("dashboard.html?branch=" + branch);
+
+
+
+        }
+        function nandhinilayout() {
+            var branch = "nandhinilayout";
+            window.location.href = ("dashboard.html?branch=" + branch);
+
+        }
+        function laggere() {
+            var branch = "laggere";
+            window.location.href = ("dashboard.html?branch=" + branch);
+
+        }
+
+        function openenquiry() {
+            admissionSection.style.display = 'none';
+            document.getElementById("enquirySection").style.display = "block";
+
+        }
+
+
+        function openAdmission(ageGroup, branch) {
+            document.getElementById("enquirySection").style.display = "none";
+            document.getElementById("admissionSection").style.display = "block";
+
+            if (ageGroup === 'above18') {
+                document.getElementById("above18Section").style.display = "block";
+                document.getElementById("below18Section").style.display = "none";
+            } else if (ageGroup === 'below18') {
+                document.getElementById("above18Section").style.display = "none";
+                document.getElementById("below18Section").style.display = "block";
+            }
+        }
+
+
+
+    </script>
+
+    <script>
+
+        window.onload = function () {
+            var url = document.location.href,
+                params = url.split('?')[1].split('&'),
+                data = {}, tmp;
+            for (var i = 0, l = params.length; i < 1; i++) {
+                tmp = params[i].split('=');
+                data[tmp[0]] = tmp[1];
+            }
+            var c = data.branch;
+            if (c == "nandhinilayout") {
+                document.getElementById("buttonRow1").style.display = "block";
+            }
+            if (c == "mahalakshmi") {
+                document.getElementById("buttonRow2").style.display = "block";
+            }
+            if (c == "laggere") {
+                document.getElementById("buttonRow3").style.display = "block";
+            }
+
+        }
+    </script>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebse-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="../JS/connection.js"></script>
+<script src="../JS/index.js"></script>
+<script src="js/fetchenqdetails.js"></script>
+<script src="js/fetchstud_details.js"></script>
+
+<script>fetchenqdata();</script>
+<script>below18();</script>
+<script>above18();</script>
+
+
+
+<script>
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+
+            //checkPermission(user);	
+        }
+        else {
+            window.location.href = "../index.html";
+        }
+    });
+
+</script>
+
+</html>
